@@ -10,9 +10,9 @@ async function debug() {
 
     life.restart({
         CHR: 5,                     // 颜值 charm CHR
-        INT: 5,                     // 智力 intelligence INT
+        SKL: 5,                     // 技术 skill SKL
         STR: 5,                     // 体质 strength STR
-        MNY: 5,                     // 家境 money MNY
+        INT: 5,                     // 球商 intelligence INT
         SPR: 5,                     // 快乐 spirit SPR
         TLT: [1004, 1005, 1009],    // 天赋 talent TLT
     });
