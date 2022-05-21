@@ -31,7 +31,7 @@ class App{
         const loadingPage = $(`
         <div id="main">
             <div id="title">
-                人生重开模拟器<br>
+                球员生涯模拟器<br>
                 <div style="font-size:1.5rem; font-weight:normal;">加载中...</div>
             </div>
         </div>
@@ -44,10 +44,10 @@ class App{
             <button id="rank">排行榜</button>
             <button id="themeToggleBtn">黑</button>
             <div id="title">
-                人生重开模拟器<br>
-                <div style="font-size:1.5rem; font-weight:normal;">这垃圾人生一秒也不想呆了</div>
+                球员生涯模拟器<br>
+                <div style="font-size:1.5rem; font-weight:normal;">我终于带领国足拿到世界杯了？！</div>
             </div>
-            <button id="restart" class="mainbtn"><span class="iconfont">&#xe6a7;</span>立即重开</button>
+            <button id="restart" class="mainbtn"><span class="iconfont">&#xe6a7;</span>立即开始</button>
         </div>
         `);
 
@@ -126,7 +126,7 @@ class App{
                                 li.addClass('selected');
                                 this.#talentSelected.add(talent);
                                 if(this.#talentSelected.size==3) {
-                                    talentPage.find('#next').text('开始新人生')
+                                    talentPage.find('#next').text('开始新生涯')
                                 }
                             }
                         });
@@ -222,9 +222,9 @@ class App{
         }
 
         groups.CHR = getBtnGroups("颜值", 0, 10); // 颜值 charm CHR
-        groups.INT = getBtnGroups("智力", 0, 10); // 智力 intelligence INT
-        groups.STR = getBtnGroups("体质", 0, 10); // 体质 strength STR
-        groups.MNY = getBtnGroups("家境", 0, 10); // 家境 money MNY
+        groups.INT = getBtnGroups("技术", 0, 10); // 技术 skill SKL
+        groups.STR = getBtnGroups("体力", 0, 10); // 体力 strength STR
+        groups.MNY = getBtnGroups("球商", 0, 10); // 球商 intelligence INT
 
         const ul = propertyPage.find('#propertyAllocation');
 
@@ -248,9 +248,9 @@ class App{
                     }
                 }
                 groups.CHR.set(10 - arr[0]);
-                groups.INT.set(10 - arr[1]);
+                groups.SKL.set(10 - arr[1]);
                 groups.STR.set(10 - arr[2]);
-                groups.MNY.set(10 - arr[3]);
+                groups.INT.set(10 - arr[3]);
             });
 
         propertyPage
@@ -265,9 +265,9 @@ class App{
                 }
                 this.#life.restart({
                     CHR: groups.CHR.get(),
-                    INT: groups.INT.get(),
+                    SKL: groups.INT.get(),
                     STR: groups.STR.get(),
-                    MNY: groups.MNY.get(),
+                    INT: groups.MNY.get(),
                     SPR: 5,
                     TLT: Array.from(this.#talentSelected).map(({id})=>id),
                 });
@@ -320,9 +320,9 @@ class App{
                     const property = this.#life.getLastRecord();
                     $("#lifeProperty").html(`
                     <li>颜值：${property.CHR} </li>
-                    <li>智力：${property.INT} </li>
-                    <li>体质：${property.STR} </li>
-                    <li>家境：${property.MNY} </li>
+                    <li>技术：${property.SKL} </li>
+                    <li>体力：${property.STR} </li>
+                    <li>球商：${property.INT} </li>
                     <li>快乐：${property.SPR} </li>`);
                 }
             });
@@ -336,18 +336,18 @@ class App{
         // Summary
         const summaryPage = $(`
         <div id="main">
-            <div class="head">人生总结</div>
+            <div class="head">生涯总结</div>
             <ul id="judge" class="judge" style="bottom: calc(35% + 2.5rem)">
-                <li class="grade2"><span>颜值：</span>9级 美若天仙</li>
-                <li><span>智力：</span>4级 智力一般</li>
-                <li><span>体质：</span>1级 极度虚弱</li>
-                <li><span>家境：</span>6级 小康之家</li>
+                <li class="grade2"><span>颜值：</span>9级 陌上人如玉，公子世无双</li>
+                <li><span>技术：</span>4级 中规中矩</li>
+                <li><span>体力：</span>1级 肾虚公子</li>
+                <li><span>球商：</span>6级 足智多谋</li>
                 <li><span>享年：</span>3岁 早夭</li>
-                <li><span>快乐：</span>3级 不太幸福的人生</li>
+                <li><span>快乐：</span>3级 不太幸福的生涯</li>
             </ul>
             <div class="head" style="top:auto; bottom:35%">天赋，你可以选一个，下辈子还能抽到</div>
             <ul id="talents" class="selectlist" style="top:calc(65% + 0.5rem); bottom:8rem">
-                <li class="grade2b">黑幕（面试一定成功）</li>
+                <li class="grade2b">黑幕（试训一定成功）</li>
             </ul>
             <button id="again" class="mainbtn" style="top:auto; bottom:0.1em"><span class="iconfont">&#xe6a7;</span>再次重开</button>
         </div>
@@ -460,16 +460,16 @@ class App{
                             return `<li class="grade${grade}"><span>颜值：</span>${value} ${judge}</li>`
                         })(),
                         (()=>{
-                            const { judge, grade, value } = s('INT', max);
-                            return `<li class="grade${grade}"><span>智力：</span>${value} ${judge}</li>`
+                            const { judge, grade, value } = s('SKL', max);
+                            return `<li class="grade${grade}"><span>技术：</span>${value} ${judge}</li>`
                         })(),
                         (()=>{
                             const { judge, grade, value } = s('STR', max);
-                            return `<li class="grade${grade}"><span>体质：</span>${value} ${judge}</li>`
+                            return `<li class="grade${grade}"><span>体力：</span>${value} ${judge}</li>`
                         })(),
                         (()=>{
-                            const { judge, grade, value } = s('MNY', max);
-                            return `<li class="grade${grade}"><span>家境：</span>${value} ${judge}</li>`
+                            const { judge, grade, value } = s('INT', max);
+                            return `<li class="grade${grade}"><span>球商：</span>${value} ${judge}</li>`
                         })(),
                         (()=>{
                             const { judge, grade, value } = s('SPR', max);
@@ -481,7 +481,7 @@ class App{
                         })(),
                         (()=>{
                             const m = type=>max(records.map(({[type]: value})=>value));
-                            const value = Math.floor(sum(m('CHR'), m('INT'), m('STR'), m('MNY'), m('SPR'))*2 + m('AGE')/2);
+                            const value = Math.floor(sum(m('CHR'), m('SKL'), m('STR'), m('INT'), m('SPR'))*2 + m('AGE')/2);
                             const { judge, grade } = summary('SUM', value);
                             return `<li class="grade${grade}"><span>总评：</span>${value} ${judge}</li>`
                         })(),
