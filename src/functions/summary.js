@@ -8,7 +8,7 @@ const data = {
         {"min":9, "judge": "罕见", "grade": 2},
         {"min":11, "judge": "逆天", "grade": 3},
     ],
-    "MNY": [
+    "SKL": [
         {"judge": "地狱", "grade": 0},
         {"min":1, "judge": "折磨", "grade": 0},
         {"min":2, "judge": "不佳", "grade": 0},
