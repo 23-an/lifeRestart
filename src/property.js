@@ -6,9 +6,9 @@ class Property {
     TYPES = {
         AGE: "AGE",
         CHR: "CHR",
-        INT: "INT",
+        SKL: "SKL",
         STR: "STR",
-        MNY: "MNY",
+        INT: "INT",
         SPR: "SPR",
         LIF: "LIF",
         TLT: "TLT",
@@ -46,9 +46,9 @@ class Property {
         this.#data = {
             [this.TYPES.AGE]: -1,
             [this.TYPES.CHR]: 0,
-            [this.TYPES.INT]: 0,
+            [this.TYPES.SKL]: 0,
             [this.TYPES.STR]: 0,
-            [this.TYPES.MNY]: 0,
+            [this.TYPES.INT]: 0,
             [this.TYPES.SPR]: 0,
             [this.TYPES.LIF]: 1,
             [this.TYPES.TLT]: [],
@@ -63,9 +63,9 @@ class Property {
         switch(prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
-            case this.TYPES.INT:
+            case this.TYPES.SKL:
             case this.TYPES.STR:
-            case this.TYPES.MNY:
+            case this.TYPES.INT:
             case this.TYPES.SPR:
             case this.TYPES.LIF:
             case this.TYPES.TLT:
@@ -79,9 +79,9 @@ class Property {
         switch(prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
-            case this.TYPES.INT:
+            case this.TYPES.SKL:
             case this.TYPES.STR:
-            case this.TYPES.MNY:
+            case this.TYPES.INT:
             case this.TYPES.SPR:
             case this.TYPES.LIF:
             case this.TYPES.TLT:
@@ -96,9 +96,9 @@ class Property {
         this.#record.push({
             [this.TYPES.AGE]: this.get(this.TYPES.AGE),
             [this.TYPES.CHR]: this.get(this.TYPES.CHR),
-            [this.TYPES.INT]: this.get(this.TYPES.INT),
+            [this.TYPES.INT]: this.get(this.TYPES.SKL),
             [this.TYPES.STR]: this.get(this.TYPES.STR),
-            [this.TYPES.MNY]: this.get(this.TYPES.MNY),
+            [this.TYPES.MNY]: this.get(this.TYPES.INT),
             [this.TYPES.SPR]: this.get(this.TYPES.SPR),
         });
     }
@@ -120,9 +120,9 @@ class Property {
         switch(prop) {
             case this.TYPES.AGE:
             case this.TYPES.CHR:
-            case this.TYPES.INT:
+            case this.TYPES.SKL:
             case this.TYPES.STR:
-            case this.TYPES.MNY:
+            case this.TYPES.INT:
             case this.TYPES.SPR:
             case this.TYPES.LIF:
                 this.#data[prop] += Number(value);
